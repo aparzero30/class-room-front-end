@@ -1,0 +1,32 @@
+<form
+  class="bg-light d-flex flex-column justify-content-center align-items-center col-3 fixed-center"
+  (ngSubmit)="login()"
+>
+  <span class="material-symbols-outlined" id="icon"> cruelty_free </span>
+  <h1>Curiosity<span style="color: #b58ecc">/Login</span></h1>
+
+  <div class="form-group col-11">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter email"
+      [(ngModel)]="loginAcc.email"
+      name="email"
+    />
+  </div>
+  <div class="form-group col-11">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Password"
+      [(ngModel)]="loginAcc.password"
+      name="password"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary col-11">Login</button>
+  <a routerLink="/register">Don't have account?</a>
+</form>

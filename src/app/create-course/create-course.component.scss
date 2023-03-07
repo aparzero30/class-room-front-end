@@ -1,0 +1,67 @@
+form {
+  height: 30vh;
+  border-radius: 1vh;
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 69;
+  flex-wrap: wrap;
+
+  button {
+    background: linear-gradient(to right, #b58ecc, #5de6de);
+    border: none;
+    color: black;
+    border-radius: 30px;
+    padding: 1vh;
+    font-family: "Work Sans";
+    font-weight: bolder;
+  }
+  label {
+    user-select: none;
+    color: #b58ecc;
+    font-weight: bold;
+  }
+  #icon {
+    font-size: 5vw;
+    color: #5de6de;
+  }
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  h1 {
+    font-family: "Work Sans";
+    font-weight: bolder;
+    user-select: none;
+  }
+  span {
+    user-select: none;
+    margin: 0;
+  }
+  a {
+    padding-top: 0.5vh;
+    font-size: 1.2vh;
+    color: black;
+  }
+  #banner {
+    height: max-content;
+    padding: 0;
+    margin: 0;
+
+    h1 {
+      margin: 0;
+    }
+  }
+}
+
+#close {
+  position: fixed;
+  right: 1vh;
+  top: 1vh;
+  user-select: none;
+  cursor: pointer;
+}

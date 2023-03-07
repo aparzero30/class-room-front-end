@@ -1,0 +1,94 @@
+#home-wrapper {
+  background-color: white;
+  height: max-content;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  #header {
+    height: 7vh;
+    user-select: none;
+  }
+
+  #add {
+    margin-left: 1vw;
+    background: linear-gradient(to right, #b58ecc, #5de6de);
+    height: 5vh;
+    width: 5.2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 4vh;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+  }
+  #h1 {
+    font-family: "Work Sans";
+    font-weight: bolder;
+  }
+  #menu {
+    margin-right: 1vh;
+    margin-left: 1vh;
+    background: linear-gradient(to right, #b58ecc, #5de6de);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+form {
+  height: 20vh;
+  border-radius: 1vh;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  flex-wrap: wrap;
+  margin: 10px;
+  background: linear-gradient(to right, #b58ecc, #5de6de);
+
+  button {
+    background: linear-gradient(to right, #b58ecc, #5de6de);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    padding: 1vh;
+    font-family: "Work Sans";
+    font-weight: bolder;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
+  }
+
+  #icon {
+    font-size: 5vw;
+    color: white;
+  }
+  h1 {
+    font-family: "Work Sans";
+    font-weight: bolder;
+    user-select: none;
+  }
+  span {
+    user-select: none;
+    margin: 0;
+  }
+  a {
+    padding-top: 0.5vh;
+    font-size: 1.2vh;
+    color: black;
+  }
+  #banner {
+    height: max-content;
+    padding: 0;
+    margin: 0;
+
+    h1 {
+      margin: 0;
+      color: black;
+      font-size: 1.5vw;
+    }
+  }
+}
+
+#box-wrapper {
+  flex-wrap: wrap;
+}

@@ -1,0 +1,56 @@
+<form
+  class="bg-light d-flex flex-column justify-content-center align-items-center col-3 fixed-center"
+  (ngSubmit)="register()"
+>
+  <span class="material-symbols-outlined" id="icon"> cruelty_free </span>
+  <h1>Curiosity<span style="color: #b58ecc">/Signup</span></h1>
+
+  <div class="form-group col-11">
+    <label for="name">Full Name</label>
+    <input
+      type="name"
+      class="form-control"
+      id="name"
+      placeholder="Enter Full Name"
+      [(ngModel)]="registerAcc.name"
+      name="name"
+    />
+  </div>
+
+  <div class="form-group col-11">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      placeholder="Enter email"
+      [(ngModel)]="registerAcc.email"
+      name="email"
+    />
+  </div>
+  <div class="form-group col-11">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      placeholder="Password"
+      [(ngModel)]="registerAcc.password"
+      name="password"
+    />
+  </div>
+  <div class="form-group col-11">
+    <label for="user-type">I am a:</label>
+    <select
+      class="form-control"
+      id="user-type"
+      [(ngModel)]="registerAcc.role"
+      name="role"
+    >
+      <option value="instructor">Instructor</option>
+      <option value="student">Student</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary col-11">Register</button>
+  <a routerLink="/login">Sign in instead</a>
+</form>
