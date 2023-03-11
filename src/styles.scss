@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+body::-webkit-scrollbar {
+  width: 0.3vw; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #60fee7; /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #2f3136; /* color of the scroll track */
+}
+
+body::-webkit-scrollbar-button {
+  display: none; /* hide the scroll buttons */
+}

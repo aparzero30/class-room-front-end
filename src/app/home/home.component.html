@@ -1,39 +1,40 @@
 <div class="col-12" id="home-wrapper">
-  <div
-    class="col-12 border-bottom border-2 d-flex flex-row justify-content-center align-items-center"
-    id="header"
-  >
-    <div class="col-3">
-      <span class="material-symbols-outlined" id="add" (click)="createCourse()">
-        add
-      </span>
-    </div>
-
-    <div class="col-9 d-flex flex-row justify-content-end align-items-center">
-      <h1>Curiosity</h1>
-
-      <span class="material-symbols-outlined" id="menu"> menu </span>
-    </div>
-  </div>
-
-  <div
-    class="col-12 d-flex flex-row justify-content-center align-items-center"
-    id="box-wrapper"
-  >
-    <form
-      class="bg-light d-flex flex-row justify-content-center align-items-center col- fixed-center col-3"
-      *ngFor="let course of courses"
-    >
-      <div
-        class="form-group col-12 d-flex flex-row justify-content-start align-items-center"
-        id="banner"
-      >
-        <span class="material-symbols-outlined" id="icon"> cruelty_free </span>
-        <h1>{{ course.courseName }}</h1>
-      </div>
-
-      <button type="submit" class="btn btn-primary col-11">View</button>
-    </form>
-  </div>
+  <app-header></app-header>
+  <app-instruct-subjects
+    *ngIf="role === 'instructor'"
+    id="instructor"
+  ></app-instruct-subjects>
 </div>
+
+<form
+  class="bg-light d-flex flex-row justify-content-center align-items-center col-3 fixed-center"
+  id="instructorfrm"
+  (ngSubmit)="addCourse()"
+>
+  <div
+    class="form-group col-12 d-flex flex-row justify-content-center align-items-center"
+    id="banner"
+  >
+    <span class="material-symbols-outlined" id="icon"> cruelty_free </span>
+    <h1>Create<span style="color: #b58ecc">/Course</span></h1>
+  </div>
+
+  <div class="form-group col-11">
+    <label for="name">Course Name</label>
+    <input
+      type="name"
+      class="form-control"
+      id="name"
+      placeholder="Enter Course Name"
+      [(ngModel)]="courseName"
+      name="name"
+    />
+  </div>
+  <button type="submit" class="btn btn-primary col-11">Create</button>
+
+  <span class="material-symbols-outlined" id="close" (click)="close()">
+    close
+  </span>
+</form>
+
 <router-outlet></router-outlet>

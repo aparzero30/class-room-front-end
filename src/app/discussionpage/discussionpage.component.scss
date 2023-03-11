@@ -1,0 +1,47 @@
+#home-wrapper {
+  background-color: white;
+  height: max-content;
+  min-height: 100vh;
+  // position: fixed;
+  top: 0;
+}
+
+#box-wrapper {
+  flex-wrap: wrap;
+  transition: 0.5s;
+}
+
+#h1 {
+  font-family: "Work Sans";
+  font-weight: bolder;
+}
+#menu {
+  margin-right: 1vh;
+  margin-left: 1vh;
+  background: linear-gradient(to right, #b58ecc, #5de6de);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#header {
+  height: 7vh;
+  user-select: none;
+}
+#disc-comm {
+  height: 100vh;
+}
+
+#discussion-area {
+  height: 100vh;
+  border-right: 1px solid rgb(236, 233, 233);
+  h1 {
+    user-select: none;
+  }
+  p {
+    user-select: none;
+  }
+}
+#comment-area {
+  height: 100vh;
+}

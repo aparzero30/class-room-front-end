@@ -1,37 +1,27 @@
 form {
-  height: 30vh;
+  height: 20vh;
   border-radius: 1vh;
-  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 69;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   flex-wrap: wrap;
+  margin: 10px;
+  background: linear-gradient(to right, #b58ecc, #5de6de);
 
   button {
     background: linear-gradient(to right, #b58ecc, #5de6de);
     border: none;
-    color: black;
+    color: white;
     border-radius: 30px;
     padding: 1vh;
     font-family: "Work Sans";
     font-weight: bolder;
+    border-width: 1px;
+    border-style: solid;
+    border-color: white;
   }
-  label {
-    user-select: none;
-    color: #b58ecc;
-    font-weight: bold;
-  }
+
   #icon {
     font-size: 5vw;
-    color: #5de6de;
-  }
-  select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
+    color: white;
   }
   h1 {
     font-family: "Work Sans";
@@ -54,14 +44,13 @@ form {
 
     h1 {
       margin: 0;
+      color: black;
+      font-size: 1.5vw;
     }
   }
 }
 
-#close {
-  position: fixed;
-  right: 1vh;
-  top: 1vh;
-  user-select: none;
-  cursor: pointer;
+#box-wrapper {
+  flex-wrap: wrap;
+  background-color: white;
 }

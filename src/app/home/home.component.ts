@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Course } from 'src/interfaces/Course';
 import { CourseService } from 'src/services/course.service';
-import { AuthService } from 'src/services/auth.service';
-import { Router } from '@angular/router';
+import { Role } from 'src/interfaces/Role';
+import { Course } from 'src/interfaces/Course';
 
 @Component({
   selector: 'app-home',
@@ -10,32 +9,55 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  public courses: Course[] = [];
+  public role!: Role;
+  public courseName!: string;
 
-  constructor(
-    private service: CourseService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private service: CourseService) {}
 
   ngOnInit(): void {
-    // console.log(this.authService.getSession());
-    this.getAllCourses();
-    // this.demo();
+    this.getRole();
   }
 
-  public getAllCourses(): void {
-    this.service.getAllCourses().subscribe({
+  public addCourse(): void {
+    this.service.createCourse(this.courseName).subscribe({
       next: (v) => {
-        this.courses = v;
-        console.log(this.courses);
+        const myElement = document.getElementById('instructorfrm');
+        if (myElement) {
+          myElement.style.height = '0';
+        }
+        location.reload();
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });
   }
 
-  public createCourse(): void {
-    this.router.navigate(['curiosity/create']);
+  public close() {
+    let formId = 'studentfrm';
+    if (this.role === 'instructor') {
+      formId = 'instructorfrm';
+      const myDiv = document.getElementById('instructor');
+      if (myDiv) {
+        myDiv.style.pointerEvents = 'auto'; // disable pointer events on the div
+        myDiv.style.opacity = '1'; // set the opacity to 50%
+        myDiv.style.backgroundColor = 'black'; // set the background color to gray
+      }
+    }
+    const myElement = document.getElementById(formId);
+
+    if (myElement) {
+      myElement.style.height = '0vh';
+      myElement.style.boxShadow = ''; // remove the box-shadow style
+    }
+  }
+
+  public getRole(): void {
+    this.service.getCurrentRole().subscribe({
+      next: (v) => {
+        this.role = v;
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete'),
+    });
   }
 }

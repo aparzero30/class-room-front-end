@@ -1,0 +1,20 @@
+<div
+  class="col-12 d-flex flex-row justify-content-center align-items-center"
+  id="box-wrapper"
+>
+  <form
+    class="bg-light d-flex flex-row justify-content-center align-items-center col- fixed-center col-3"
+    *ngFor="let course of courses"
+    (ngSubmit)="setCourse(course)"
+  >
+    <div
+      class="form-group col-12 d-flex flex-row justify-content-start align-items-center"
+      id="banner"
+    >
+      <span class="material-symbols-outlined" id="icon"> cruelty_free </span>
+      <h1>{{ course.courseName }}</h1>
+    </div>
+
+    <button type="submit" class="btn btn-primary col-11">View</button>
+  </form>
+</div>
