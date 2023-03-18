@@ -26,6 +26,41 @@
         {{ discussion.body }}
       </p>
     </div>
-    <div class="col-6" id="comment-area"></div>
+    <div class="col-6" id="comment-area">
+      <div class="col-11" id="msgs">
+        <h1>?QUESTIONS?</h1>
+        <!-- <label *ngFor="let comment of comments"> {{ comment.message }} </label
+        ><br /> -->
+        <!-- <h1>{{ discId }}</h1> -->
+
+        <div id="com-container" class="col-12" *ngFor="let comment of comments">
+          <div class="avatar"></div>
+          <!-- <p>{{ comment.message }}</p> -->
+          <p>{{ comment.message }}</p>
+        </div>
+      </div>
+      <form
+        class="d-flex flex-row justify-content-center align-items-center col- fixed-center col-12"
+        (ngSubmit)="addComment()"
+      >
+        <div class="form-group col-5">
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            placeholder="Type your question here....."
+            [(ngModel)]="message"
+            name="message"
+          ></textarea>
+        </div>
+        <span
+          class="material-symbols-outlined"
+          type="submit"
+          (click)="addComment()"
+        >
+          send
+        </span>
+      </form>
+    </div>
   </div>
 </div>

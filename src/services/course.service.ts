@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { Course } from 'src/interfaces/Course';
 import { AuthService } from './auth.service';
-import { User } from 'src/interfaces/User';
 import { Role } from 'src/interfaces/Role';
 
 @Injectable({
@@ -38,6 +37,8 @@ export class CourseService {
     return this.http.post<Course>(url, null, { headers, params });
   }
 
+  //for storing course
+
   public SELECTED_COURSE_KEY = 'selectedCourse';
 
   public storeSelectedCourse(selectedCourse: Course): void {
@@ -59,5 +60,16 @@ export class CourseService {
       // If the JSON string doesn't exist, return null
       return null;
     }
+  }
+  //for student
+
+  public getAllCoursesForStudent(): Observable<Course[]> {
+    const url = 'http://localhost:8080/e-classroom/course/forStudents';
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.service.getSession()
+    );
+
+    return this.http.get<Course[]>(url, { headers });
   }
 }

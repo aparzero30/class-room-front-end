@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Course } from 'src/interfaces/Course';
 import { Discussion } from 'src/interfaces/Discussion';
+import { Role } from 'src/interfaces/Role';
 import { CourseService } from 'src/services/course.service';
 import { DiscussionService } from 'src/services/discussion.service';
 
@@ -21,11 +22,23 @@ export class CoursepageComponent {
   course!: Course;
   discussions!: Discussion[];
   courseId!: number;
+  public role!: Role;
 
   ngOnInit(): void {
     this.selectedCourse = this.service.getSelectedCourse();
     this.getSelectedCourse();
     this.getAllDiscussion();
+    this.getRole();
+  }
+
+  public getRole(): void {
+    this.service.getCurrentRole().subscribe({
+      next: (v) => {
+        this.role = v;
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete'),
+    });
   }
 
   public getAllDiscussion() {

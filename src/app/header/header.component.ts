@@ -30,13 +30,14 @@ export class HeaderComponent {
     let formId = 'studentfrm';
     if (this.role === 'instructor') {
       formId = 'instructorfrm';
-      const myDiv = document.getElementById('instructor');
-      if (myDiv) {
-        myDiv.style.pointerEvents = 'none'; // disable pointer events on the div
-        myDiv.style.opacity = '0'; // set the opacity to 50%
-        myDiv.style.backgroundColor = 'black'; // set the background color to gray
-      }
     }
+    const myDiv = document.getElementById('box-wrapper');
+
+    if (myDiv) {
+      myDiv.style.pointerEvents = 'none';
+      myDiv.style.opacity = '0';
+    }
+
     const myElement = document.getElementById(formId);
 
     if (myElement) {

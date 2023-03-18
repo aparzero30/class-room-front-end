@@ -16,9 +16,14 @@
   <div class="col-9" id="subject-wrapper">
     <h1>{{ course.courseName }}</h1>
 
-    <span class="material-symbols-outlined" (click)="publish()">
+    <span
+      class="material-symbols-outlined"
+      (click)="publish()"
+      *ngIf="role === 'instructor'"
+    >
       edit_square
     </span>
+    <h2>Course ID: {{ course.courseId }}</h2>
   </div>
 
   <div

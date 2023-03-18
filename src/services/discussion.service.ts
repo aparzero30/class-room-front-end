@@ -33,9 +33,17 @@ export class DiscussionService {
       'Bearer ' + this.service.getSession()
     );
     const params = new HttpParams().set('courseId', courseId);
-
     // return this.http.get<Discussion[]>(url, null, { headers, params });
     return this.http.get<Discussion[]>(url, { headers, params });
+  }
+
+  public getCurrentDiscussion(discussionId: number): Observable<Discussion> {
+    const url = 'http://localhost:8080/e-classroom/discussion/findById';
+    const token = this.service.getSession();
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    const params = new HttpParams().set('discussionId', discussionId);
+
+    return this.http.get<Discussion>(url, { headers, params });
   }
 
   public SELECTED_DISCUSSION_KEY = 'selectedDiscussion';
