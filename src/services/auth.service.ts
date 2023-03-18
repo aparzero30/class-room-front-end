@@ -11,17 +11,17 @@ import { AuthenticationResponse } from 'src/interfaces/AuthenticationResponse';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  public registerAccount(register: RegisterRequest) {
-    const url = 'http://localhost:8080/e-classroom/auth/register';
-    return this.http.post(url, register);
-  }
+  // public registerAccount(register: RegisterRequest) {
+  //   const url = 'http://localhost:8080/e-classroom/auth/register';
+  //   return this.http.post(url, register);
+  // }
 
-  public loginAccount(
-    login: AuthenticationRequest
-  ): Observable<AuthenticationResponse> {
-    const url = 'http://localhost:8080/e-classroom/auth/authenticate';
-    return this.http.post<AuthenticationResponse>(url, login);
-  }
+  // public loginAccount(
+  //   login: AuthenticationRequest
+  // ): Observable<AuthenticationResponse> {
+  //   const url = 'http://localhost:8080/e-classroom/auth/authenticate';
+  //   return this.http.post<AuthenticationResponse>(url, login);
+  // }
 
   private sessionKey = 'jwtToken';
 
@@ -35,5 +35,20 @@ export class AuthService {
 
   getSession() {
     return sessionStorage.getItem('jwtToken');
+  }
+
+  //prodcution APIS
+
+  public registerAccount(register: RegisterRequest) {
+    const url = 'https://curiosity-afpm.onrender.com/e-classroom/auth/register';
+    return this.http.post(url, register);
+  }
+
+  public loginAccount(
+    login: AuthenticationRequest
+  ): Observable<AuthenticationResponse> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/auth/authenticate';
+    return this.http.post<AuthenticationResponse>(url, login);
   }
 }

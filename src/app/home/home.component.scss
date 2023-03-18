@@ -78,3 +78,10 @@
 #instructor {
   transition: 0.5s;
 }
+
+@media screen and (max-width: 500px) {
+  #instructorfrm,
+  #studentfrm {
+    max-width: 100vw;
+  }
+}

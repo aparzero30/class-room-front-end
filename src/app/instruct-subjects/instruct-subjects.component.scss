@@ -55,3 +55,45 @@ form {
   flex-wrap: wrap;
   background-color: white;
 }
+
+@media screen and (max-width: 500px) {
+  form {
+    width: 90vw;
+    height: 10vh;
+    justify-content: flex-start;
+    gap: 0;
+    flex-direction: row;
+
+    #banner {
+      width: 90vw;
+      height: 100%;
+    }
+
+    button {
+      width: 30vw;
+      border-radius: 10px;
+      border-width: 1px;
+      padding: 0.6vh;
+      height: 10vh;
+      background: none;
+      transform: translate(0, -100%);
+      width: 90vw;
+      color: transparent;
+      border: none;
+    }
+
+    #banner {
+      width: max-content;
+      max-width: 80%;
+      min-width: 80%;
+
+      h1 {
+        font-size: 2vh;
+      }
+      span {
+        font-size: 8vh;
+        width: max-content;
+      }
+    }
+  }
+}

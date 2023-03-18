@@ -46,3 +46,10 @@ form {
     color: black;
   }
 }
+
+@media screen and (max-width: 500px) {
+  form {
+    width: 100%;
+    height: 100%;
+  }
+}

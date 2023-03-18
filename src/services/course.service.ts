@@ -11,31 +11,31 @@ import { Role } from 'src/interfaces/Role';
 export class CourseService {
   constructor(private http: HttpClient, private service: AuthService) {}
 
-  public getAllCoursesForInstructors(): Observable<Course[]> {
-    const url = 'http://localhost:8080/e-classroom/course/forInstructors';
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + this.service.getSession()
-    );
+  // public getAllCoursesForInstructors(): Observable<Course[]> {
+  //   const url = 'http://localhost:8080/e-classroom/course/forInstructors';
+  //   const headers = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + this.service.getSession()
+  //   );
 
-    return this.http.get<Course[]>(url, { headers });
-  }
+  //   return this.http.get<Course[]>(url, { headers });
+  // }
 
-  public getCurrentRole(): Observable<Role> {
-    const url = 'http://localhost:8080/e-classroom/course/getRole';
-    const token = this.service.getSession();
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    return this.http.get<Role>(url, { headers });
-  }
+  // public getCurrentRole(): Observable<Role> {
+  //   const url = 'http://localhost:8080/e-classroom/course/getRole';
+  //   const token = this.service.getSession();
+  //   const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  //   return this.http.get<Role>(url, { headers });
+  // }
 
-  public createCourse(courseName: string): Observable<Course> {
-    const url = 'http://localhost:8080/e-classroom/course/createCourse';
-    const token = this.service.getSession();
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    const params = new HttpParams().set('courseName', courseName);
+  // public createCourse(courseName: string): Observable<Course> {
+  //   const url = 'http://localhost:8080/e-classroom/course/createCourse';
+  //   const token = this.service.getSession();
+  //   const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  //   const params = new HttpParams().set('courseName', courseName);
 
-    return this.http.post<Course>(url, null, { headers, params });
-  }
+  //   return this.http.post<Course>(url, null, { headers, params });
+  // }
 
   //for storing course
 
@@ -63,8 +63,50 @@ export class CourseService {
   }
   //for student
 
+  // public getAllCoursesForStudent(): Observable<Course[]> {
+  //   const url = 'http://localhost:8080/e-classroom/course/forStudents';
+  //   const headers = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + this.service.getSession()
+  //   );
+
+  //   return this.http.get<Course[]>(url, { headers });
+  // }
+
+  //PRODUCTION API
+
+  public getAllCoursesForInstructors(): Observable<Course[]> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/course/forInstructors';
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.service.getSession()
+    );
+
+    return this.http.get<Course[]>(url, { headers });
+  }
+
+  public getCurrentRole(): Observable<Role> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/course/getRole';
+    const token = this.service.getSession();
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return this.http.get<Role>(url, { headers });
+  }
+
+  public createCourse(courseName: string): Observable<Course> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/course/createCourse';
+    const token = this.service.getSession();
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    const params = new HttpParams().set('courseName', courseName);
+
+    return this.http.post<Course>(url, null, { headers, params });
+  }
+
   public getAllCoursesForStudent(): Observable<Course[]> {
-    const url = 'http://localhost:8080/e-classroom/course/forStudents';
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/course/forStudents';
     const headers = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + this.service.getSession()

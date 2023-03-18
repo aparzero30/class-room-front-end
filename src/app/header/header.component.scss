@@ -1,6 +1,9 @@
 #header {
   height: 7vh;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #add {
@@ -28,4 +31,17 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 500px) {
+  #header {
+    height: 6vh;
+    user-select: none;
+  }
+
+  #add {
+    font-size: 2.4vh;
+    height: 3vh;
+    width: 3.2vh;
+  }
 }

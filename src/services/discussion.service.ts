@@ -10,41 +10,41 @@ import { AuthService } from './auth.service';
 export class DiscussionService {
   constructor(private http: HttpClient, private service: AuthService) {}
 
-  public createDiscussion(
-    title: string,
-    body: string,
-    courseId: number
-  ): Observable<Discussion> {
-    const url = 'http://localhost:8080/e-classroom/discussion/publish';
-    const token = this.service.getSession();
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    const params = new HttpParams()
-      .set('title', title)
-      .set('body', body)
-      .set('courseId', courseId);
+  // public createDiscussion(
+  //   title: string,
+  //   body: string,
+  //   courseId: number
+  // ): Observable<Discussion> {
+  //   const url = 'http://localhost:8080/e-classroom/discussion/publish';
+  //   const token = this.service.getSession();
+  //   const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  //   const params = new HttpParams()
+  //     .set('title', title)
+  //     .set('body', body)
+  //     .set('courseId', courseId);
 
-    return this.http.post<Discussion>(url, null, { headers, params });
-  }
+  //   return this.http.post<Discussion>(url, null, { headers, params });
+  // }
 
-  public getAllDiscussions(courseId: number): Observable<Discussion[]> {
-    const url = ' http://localhost:8080/e-classroom/discussion/findAll';
-    const headers = new HttpHeaders().set(
-      'Authorization',
-      'Bearer ' + this.service.getSession()
-    );
-    const params = new HttpParams().set('courseId', courseId);
-    // return this.http.get<Discussion[]>(url, null, { headers, params });
-    return this.http.get<Discussion[]>(url, { headers, params });
-  }
+  // public getAllDiscussions(courseId: number): Observable<Discussion[]> {
+  //   const url = ' http://localhost:8080/e-classroom/discussion/findAll';
+  //   const headers = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + this.service.getSession()
+  //   );
+  //   const params = new HttpParams().set('courseId', courseId);
+  //   // return this.http.get<Discussion[]>(url, null, { headers, params });
+  //   return this.http.get<Discussion[]>(url, { headers, params });
+  // }
 
-  public getCurrentDiscussion(discussionId: number): Observable<Discussion> {
-    const url = 'http://localhost:8080/e-classroom/discussion/findById';
-    const token = this.service.getSession();
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    const params = new HttpParams().set('discussionId', discussionId);
+  // public getCurrentDiscussion(discussionId: number): Observable<Discussion> {
+  //   const url = 'http://localhost:8080/e-classroom/discussion/findById';
+  //   const token = this.service.getSession();
+  //   const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+  //   const params = new HttpParams().set('discussionId', discussionId);
 
-    return this.http.get<Discussion>(url, { headers, params });
-  }
+  //   return this.http.get<Discussion>(url, { headers, params });
+  // }
 
   public SELECTED_DISCUSSION_KEY = 'selectedDiscussion';
 
@@ -67,5 +67,45 @@ export class DiscussionService {
       // If the JSON string doesn't exist, return null
       return null;
     }
+  }
+
+  //PRODUCTION APIS
+
+  public createDiscussion(
+    title: string,
+    body: string,
+    courseId: number
+  ): Observable<Discussion> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/discussion/publish';
+    const token = this.service.getSession();
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    const params = new HttpParams()
+      .set('title', title)
+      .set('body', body)
+      .set('courseId', courseId);
+
+    return this.http.post<Discussion>(url, null, { headers, params });
+  }
+
+  public getAllDiscussions(courseId: number): Observable<Discussion[]> {
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/discussion/findAll';
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      'Bearer ' + this.service.getSession()
+    );
+    const params = new HttpParams().set('courseId', courseId);
+    // return this.http.get<Discussion[]>(url, null, { headers, params });
+    return this.http.get<Discussion[]>(url, { headers, params });
+  }
+
+  public getCurrentDiscussion(discussionId: number): Observable<Discussion> {
+    const url = 'https://curiosity-afpm.onrender.com/discussion/findById';
+    const token = this.service.getSession();
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    const params = new HttpParams().set('discussionId', discussionId);
+
+    return this.http.get<Discussion>(url, { headers, params });
   }
 }
