@@ -82,7 +82,6 @@ export class HomeComponent {
 
     const myElement = document.getElementById(formId);
     if (myElement) {
-      alert(this.role);
       myElement.style.height = '0vh';
       myElement.style.boxShadow = ''; // remove the box-shadow style
     }
