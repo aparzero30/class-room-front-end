@@ -5,6 +5,7 @@ import { DiscussionService } from 'src/services/discussion.service';
 import { Comm } from 'src/interfaces/Comm';
 import { CommentService } from 'src/services/comment.service';
 import { interval } from 'rxjs';
+import { AuthService } from 'src/services/auth.service';
 
 @Component({
   selector: 'app-discussionpage',
@@ -13,6 +14,7 @@ import { interval } from 'rxjs';
 })
 export class DiscussionpageComponent {
   constructor(
+    private auth: AuthService,
     private discService: DiscussionService,
     private router: Router,
     private comServ: CommentService
@@ -27,6 +29,7 @@ export class DiscussionpageComponent {
   // }, 5000);
 
   ngOnInit(): void {
+    this.checkSession();
     this.selectedDiscussion = this.discService.getSelectedDiscussion();
     this.getSelectedDiscussion();
   }
@@ -61,5 +64,12 @@ export class DiscussionpageComponent {
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });
+  }
+
+  public checkSession(): void {
+    const token = this.auth.getSession();
+    if (token === null) {
+      this.router.navigate(['/login']);
+    }
   }
 }

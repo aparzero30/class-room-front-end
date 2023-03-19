@@ -3,6 +3,8 @@ import { CourseService } from 'src/services/course.service';
 import { Role } from 'src/interfaces/Role';
 import { Course } from 'src/interfaces/Course';
 import { StudentService } from 'src/services/student.service';
+import { AuthService } from 'src/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +16,15 @@ export class HomeComponent {
   public courseName!: string;
   public courseId!: number;
 
-  constructor(private service: CourseService, private stud: StudentService) {}
+  constructor(
+    private service: CourseService,
+    private stud: StudentService,
+    private auth: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.checkSession();
     this.getRole();
   }
 
@@ -29,7 +37,7 @@ export class HomeComponent {
         if (myElement) {
           myElement.style.height = '0';
         }
-        this.close();
+        this.closed();
         location.reload();
       },
       error: (e) => console.error(e),
@@ -49,7 +57,7 @@ export class HomeComponent {
         if (myElement) {
           myElement.style.height = '0';
         }
-        this.close();
+        this.closed();
         location.reload();
       },
       error: (e) => {
@@ -61,7 +69,7 @@ export class HomeComponent {
 
   // methods for css related ---------------------------------
 
-  public close() {
+  public closed() {
     let formId = 'studentfrm';
     if (this.role === 'instructor') {
       formId = 'instructorfrm';
@@ -73,8 +81,8 @@ export class HomeComponent {
     }
 
     const myElement = document.getElementById(formId);
-
     if (myElement) {
+      alert(this.role);
       myElement.style.height = '0vh';
       myElement.style.boxShadow = ''; // remove the box-shadow style
     }
@@ -90,5 +98,11 @@ export class HomeComponent {
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
     });
+  }
+  public checkSession(): void {
+    const token = this.auth.getSession();
+    if (token === null) {
+      this.router.navigate(['/login']);
+    }
   }
 }

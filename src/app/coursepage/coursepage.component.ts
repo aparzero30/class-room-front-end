@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Course } from 'src/interfaces/Course';
 import { Discussion } from 'src/interfaces/Discussion';
 import { Role } from 'src/interfaces/Role';
+import { AuthService } from 'src/services/auth.service';
 import { CourseService } from 'src/services/course.service';
 import { DiscussionService } from 'src/services/discussion.service';
 
@@ -13,6 +14,7 @@ import { DiscussionService } from 'src/services/discussion.service';
 })
 export class CoursepageComponent {
   constructor(
+    private auth: AuthService,
     private service: CourseService,
     private discService: DiscussionService,
     private router: Router
@@ -25,6 +27,7 @@ export class CoursepageComponent {
   public role!: Role;
 
   ngOnInit(): void {
+    this.checkSession();
     this.selectedCourse = this.service.getSelectedCourse();
     this.getSelectedCourse();
     this.getAllDiscussion();
@@ -106,5 +109,12 @@ export class CoursepageComponent {
   public viewDiscussion(discussion: Discussion) {
     this.discService.storeSelectedDiscussion(discussion);
     this.router.navigate(['/discussionpage']);
+  }
+
+  public checkSession(): void {
+    const token = this.auth.getSession();
+    if (token === null) {
+      this.router.navigate(['/login']);
+    }
   }
 }

@@ -19,6 +19,10 @@ export class LoginComponent {
   auth!: AuthenticationResponse;
   token!: string;
 
+  ngOnInit(): void {
+    this.checkSession();
+  }
+
   public login(): void {
     this.service.loginAccount(this.loginAcc).subscribe({
       next: (v) => {
@@ -28,5 +32,12 @@ export class LoginComponent {
       complete: () =>
         console.info('complete', this.router.navigate(['/curiosity'])),
     });
+  }
+
+  public checkSession(): void {
+    const token = this.service.getSession();
+    if (token !== null) {
+      this.router.navigate(['/curiosity']);
+    }
   }
 }
