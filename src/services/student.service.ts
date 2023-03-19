@@ -20,7 +20,8 @@ export class StudentService {
   // }
 
   public enroll(courseId: number): Observable<Student> {
-    const url = 'https://curiosity-afpm.onrender.com';
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/userCourse/enroll';
     const token = this.service.getSession();
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     const params = new HttpParams().set('courseId', courseId);
