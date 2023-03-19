@@ -101,7 +101,8 @@ export class DiscussionService {
   }
 
   public getCurrentDiscussion(discussionId: number): Observable<Discussion> {
-    const url = 'https://curiosity-afpm.onrender.com/discussion/findById';
+    const url =
+      'https://curiosity-afpm.onrender.com/e-classroom/discussion/findById';
     const token = this.service.getSession();
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     const params = new HttpParams().set('discussionId', discussionId);
