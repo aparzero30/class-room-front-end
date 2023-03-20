@@ -3,4 +3,5 @@ export interface Comm {
   discussionId: number;
   userId: number;
   message: string;
+  name: string;
 }

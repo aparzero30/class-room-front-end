@@ -44,13 +44,17 @@ export class CoursepageComponent {
     });
   }
 
+  loading: boolean = true;
+
   public getAllDiscussion() {
     this.discService.getAllDiscussions(this.courseId).subscribe({
       next: (v) => {
         this.discussions = v;
       },
       error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 

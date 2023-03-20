@@ -12,6 +12,7 @@ import { InstructSubjectsComponent } from './instruct-subjects/instruct-subjects
 import { HeaderComponent } from './header/header.component';
 import { CoursepageComponent } from './coursepage/coursepage.component';
 import { DiscussionpageComponent } from './discussionpage/discussionpage.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const appRoute: Routes = [
     HeaderComponent,
     CoursepageComponent,
     DiscussionpageComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

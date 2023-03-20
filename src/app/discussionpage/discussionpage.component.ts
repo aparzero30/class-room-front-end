@@ -60,6 +60,7 @@ export class DiscussionpageComponent {
       next: (v) => {
         this.discussion = v;
         this.comments = this.discussion.comments;
+        console.log(this.comments);
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),

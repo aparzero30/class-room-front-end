@@ -23,7 +23,10 @@ export class LoginComponent {
     this.checkSession();
   }
 
+  loading: boolean = false;
+
   public login(): void {
+    this.loading = true;
     this.service.loginAccount(this.loginAcc).subscribe({
       next: (v) => {
         this.service.setSession(v.token);

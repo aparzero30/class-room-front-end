@@ -28,6 +28,8 @@ export class InstructSubjectsComponent {
     // }
   }
 
+  loading: boolean = true;
+
   public setCourse(selected: Course) {
     this.service.storeSelectedCourse(selected);
     this.router.navigate(['/coursepage']);
@@ -45,7 +47,9 @@ export class InstructSubjectsComponent {
         }
       },
       error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 

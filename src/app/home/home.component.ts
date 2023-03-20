@@ -28,9 +28,12 @@ export class HomeComponent {
     this.getRole();
   }
 
+  loading: boolean = false;
+
   // methods for instructors --------------------------------------------------------------------------
 
   public addCourse(): void {
+    this.loading = true;
     this.service.createCourse(this.courseName).subscribe({
       next: (v) => {
         const myElement = document.getElementById('instructorfrm');
@@ -41,7 +44,9 @@ export class HomeComponent {
         location.reload();
       },
       error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 
@@ -50,7 +55,7 @@ export class HomeComponent {
   public enrollID!: number;
 
   public enroll(): void {
-    // alert('hello');
+    this.loading = true;
     this.stud.enroll(this.enrollID).subscribe({
       next: (v) => {
         const myElement = document.getElementById('studentfrm');
@@ -63,7 +68,9 @@ export class HomeComponent {
       error: (e) => {
         alert('Not found');
       },
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 
