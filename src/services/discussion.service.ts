@@ -46,6 +46,7 @@ export class DiscussionService {
   //   return this.http.get<Discussion>(url, { headers, params });
   // }
 
+  //fpr session
   public SELECTED_DISCUSSION_KEY = 'selectedDiscussion';
 
   public storeSelectedDiscussion(selectedDiscussion: Discussion): void {
@@ -65,6 +66,24 @@ export class DiscussionService {
       return JSON.parse(discussionJson);
     } else {
       // If the JSON string doesn't exist, return null
+      return null;
+    }
+  }
+
+  public DISCUSSIONS_KEY = 'discussions_for_you';
+
+  public storeDiscussion(discussions: Discussion[]): void {
+    const discJson = JSON.stringify(discussions);
+    sessionStorage.setItem(this.DISCUSSIONS_KEY, discJson);
+  }
+
+  public getDiscussions(): Discussion[] | null {
+    // Retrieve the JSON string from session storage
+    const courseJson = sessionStorage.getItem(this.DISCUSSIONS_KEY);
+
+    if (courseJson) {
+      return JSON.parse(courseJson);
+    } else {
       return null;
     }
   }

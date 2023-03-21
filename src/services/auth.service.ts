@@ -23,10 +23,12 @@ export class AuthService {
   //   return this.http.post<AuthenticationResponse>(url, login);
   // }
 
+  //SETTING SESSION
+
   private sessionKey = 'jwtToken';
 
   setSession(token: string) {
-    sessionStorage.setItem('jwtToken', token);
+    sessionStorage.setItem(this.sessionKey, token);
   }
 
   clearSession() {
@@ -34,7 +36,7 @@ export class AuthService {
   }
 
   getSession() {
-    return sessionStorage.getItem('jwtToken');
+    return sessionStorage.getItem(this.sessionKey);
   }
 
   //prodcution APIS

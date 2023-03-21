@@ -37,7 +37,7 @@ export class CourseService {
   //   return this.http.post<Course>(url, null, { headers, params });
   // }
 
-  //for storing course
+  //FOR STORING COURSE
 
   public SELECTED_COURSE_KEY = 'selectedCourse';
 
@@ -61,6 +61,25 @@ export class CourseService {
       return null;
     }
   }
+
+  public COURSES_KEY = 'coures_for_you';
+
+  public storeCourses(selectedCourse: Course[]): void {
+    const courseJson = JSON.stringify(selectedCourse);
+    sessionStorage.setItem(this.COURSES_KEY, courseJson);
+  }
+
+  public getCourses(): Course[] | null {
+    // Retrieve the JSON string from session storage
+    const courseJson = sessionStorage.getItem(this.COURSES_KEY);
+
+    if (courseJson) {
+      return JSON.parse(courseJson);
+    } else {
+      return null;
+    }
+  }
+
   //for student
 
   // public getAllCoursesForStudent(): Observable<Course[]> {
