@@ -30,8 +30,17 @@ export class DiscussionpageComponent {
 
   ngOnInit(): void {
     this.checkSession();
+    this.getSessionComments();
     this.selectedDiscussion = this.discService.getSelectedDiscussion();
     this.getSelectedDiscussion();
+  }
+
+  getSessionComments() {
+    const com: Comm[] | undefined =
+      this.discService.getSelectedDiscussion()?.comments;
+    if (com !== undefined) {
+      this.comments = com;
+    }
   }
 
   getSelectedDiscussion() {

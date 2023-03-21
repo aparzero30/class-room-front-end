@@ -5,6 +5,7 @@ import { Course } from 'src/interfaces/Course';
 import { StudentService } from 'src/services/student.service';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
+import { RoleService } from 'src/services/role.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,8 @@ export class HomeComponent {
     private service: CourseService,
     private stud: StudentService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private rlservice: RoleService
   ) {}
 
   ngOnInit(): void {
@@ -97,9 +99,10 @@ export class HomeComponent {
   // token methods ------------------------------------------------------------------
 
   public getRole(): void {
-    this.service.getCurrentRole().subscribe({
+    this.rlservice.getCurrentRole().subscribe({
       next: (v) => {
         this.role = v;
+        this.rlservice.setSession(v);
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),

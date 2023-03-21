@@ -5,6 +5,7 @@ import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/interfaces/User';
 import { Role } from 'src/interfaces/Role';
+import { RoleService } from 'src/services/role.service';
 
 @Component({
   selector: 'app-instruct-subjects',
@@ -12,20 +13,30 @@ import { Role } from 'src/interfaces/Role';
   styleUrls: ['./instruct-subjects.component.scss'],
 })
 export class InstructSubjectsComponent {
-  public courses: Course[] = [];
-  public role!: Role;
+  constructor(
+    private service: CourseService,
+    private router: Router,
+    private rlService: RoleService
+  ) {}
 
-  constructor(private service: CourseService, private router: Router) {}
+  public courses: Course[] | null = [];
+  public role!: Role;
 
   ngOnInit(): void {
     // this.getAllCoursesForInstructors();
+    this.getCourses();
     this.getRole();
     this.getAllCoursesForInstructors();
+
     // if (this.role === 'instructor') {
     //   this.getAllCoursesForInstructors();
     // } else {
     //   alert(this.role);
     // }
+  }
+
+  public getCourses() {
+    this.courses = this.service.getCourses();
   }
 
   loading: boolean = true;
@@ -36,7 +47,7 @@ export class InstructSubjectsComponent {
   }
 
   public getRole(): void {
-    this.service.getCurrentRole().subscribe({
+    this.rlService.getCurrentRole().subscribe({
       next: (v) => {
         // alert(v);
         this.role = v;
@@ -57,7 +68,7 @@ export class InstructSubjectsComponent {
     this.service.getAllCoursesForInstructors().subscribe({
       next: (v) => {
         this.courses = v;
-        console.log(this.courses);
+        this.service.storeCourses(this.courses);
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),
@@ -68,7 +79,7 @@ export class InstructSubjectsComponent {
     this.service.getAllCoursesForStudent().subscribe({
       next: (v) => {
         this.courses = v;
-        console.log(this.courses);
+        this.service.storeCourses(this.courses);
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),

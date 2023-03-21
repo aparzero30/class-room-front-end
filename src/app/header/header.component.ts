@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Course } from 'src/interfaces/Course';
 import { Role } from 'src/interfaces/Role';
 import { CourseService } from 'src/services/course.service';
+import { RoleService } from 'src/services/role.service';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +12,17 @@ import { CourseService } from 'src/services/course.service';
 export class HeaderComponent {
   public role!: Role;
 
-  constructor(private service: CourseService) {}
+  constructor(private service: CourseService, private rlservice: RoleService) {}
 
   ngOnInit(): void {
     this.getRole();
   }
 
   public getRole(): void {
-    this.service.getCurrentRole().subscribe({
+    this.rlservice.getCurrentRole().subscribe({
       next: (v) => {
         this.role = v;
+        this.rlservice.setSession(v);
       },
       error: (e) => console.error(e),
       complete: () => console.info('complete'),

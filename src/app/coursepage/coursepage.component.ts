@@ -6,6 +6,7 @@ import { Role } from 'src/interfaces/Role';
 import { AuthService } from 'src/services/auth.service';
 import { CourseService } from 'src/services/course.service';
 import { DiscussionService } from 'src/services/discussion.service';
+import { RoleService } from 'src/services/role.service';
 
 @Component({
   selector: 'app-coursepage',
@@ -17,31 +18,34 @@ export class CoursepageComponent {
     private auth: AuthService,
     private service: CourseService,
     private discService: DiscussionService,
-    private router: Router
+    private router: Router,
+    private rlservice: RoleService
   ) {}
 
   selectedCourse!: Course | null;
   course!: Course;
-  discussions!: Discussion[];
+  discussions: Discussion[] = [];
   courseId!: number;
-  public role!: Role;
+  public role!: Role | null;
 
   ngOnInit(): void {
     this.checkSession();
     this.selectedCourse = this.service.getSelectedCourse();
     this.getSelectedCourse();
+    this.getDiscussions();
     this.getAllDiscussion();
     this.getRole();
   }
 
   public getRole(): void {
-    this.service.getCurrentRole().subscribe({
-      next: (v) => {
-        this.role = v;
-      },
-      error: (e) => console.error(e),
-      complete: () => console.info('complete'),
-    });
+    this.role = this.rlservice.getSession();
+  }
+  public getDiscussions() {
+    const checker: Discussion[] | null = this.discService.getDiscussions();
+    if (checker !== null) {
+      this.discussions = checker;
+    }
+    // this.discussions = this.discService.getDiscussions();
   }
 
   loading: boolean = true;
@@ -50,6 +54,7 @@ export class CoursepageComponent {
     this.discService.getAllDiscussions(this.courseId).subscribe({
       next: (v) => {
         this.discussions = v;
+        this.discService.storeDiscussion(this.discussions);
       },
       error: (e) => console.error(e),
       complete: () => {
