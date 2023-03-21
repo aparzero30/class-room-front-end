@@ -59,10 +59,11 @@ form {
 @media screen and (max-width: 500px) {
   form {
     width: 90vw;
-    height: 10vh;
+    height: 13vh;
     justify-content: flex-start;
     gap: 0;
     flex-direction: row;
+    margin: 5px;
 
     #banner {
       width: 90vw;
@@ -88,7 +89,7 @@ form {
       min-width: 80%;
 
       h1 {
-        font-size: 2vh;
+        font-size: 3vh;
       }
       span {
         font-size: 8vh;

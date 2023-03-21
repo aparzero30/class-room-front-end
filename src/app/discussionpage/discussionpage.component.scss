@@ -3,7 +3,6 @@
   height: max-content;
   min-height: 100vh;
   max-height: 100vh;
-  // position: fixed;
   top: 0;
   overflow: hidden;
 }
@@ -91,7 +90,6 @@
     border-radius: 50%;
     background: linear-gradient(to right, #b58ecc, #5de6de);
     margin-left: 0.5vw;
-    // margin-top: 0.3vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,8 +137,6 @@
 
 #comment-area form {
   height: 6vh;
-  // gap: 1vw;
-
   textarea {
     border-right-width: 0;
     border-right-width: none;
@@ -156,12 +152,12 @@
   }
 
   textarea::-webkit-scrollbar {
-    width: 0.2vw; /* width of the entire scrollbar */
+    width: 0.2vw;
   }
 
   textarea::-webkit-scrollbar-thumb {
-    background-color: black; /* color of the scroll thumb */
-    border-radius: 1px; /* roundness of the scroll thumb */
+    background-color: black;
+    border-radius: 1px;
   }
 
   textarea::-webkit-scrollbar-track {
@@ -169,16 +165,14 @@
   }
 
   textarea::-webkit-scrollbar-button {
-    display: none; /* hide the scroll buttons */
+    display: none;
   }
 
   span {
-    // background: linear-gradient(to right, #b58ecc, #5de6de);
     transform: translate(-25%);
     z-index: 1;
     border-width: 1px;
     border-color: #b58ecc;
-    // color: rgb(72, 72, 72);
     border-style: solid;
     height: 8vh;
     width: 4vh;

@@ -2,17 +2,14 @@
   background-color: white;
   height: max-content;
   min-height: 100vh;
-  // position: fixed;
   top: 0;
+  font-family: Poppins;
 }
-
 #box-wrapper {
   flex-wrap: wrap;
   transition: 0.5s;
 }
-
 #h1 {
-  font-family: "Work Sans";
   font-weight: bolder;
 }
 #menu {
@@ -23,7 +20,6 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 #header1 {
   height: 7vh;
   user-select: none;
@@ -31,10 +27,8 @@
 #discussion-wrapper {
   height: max-content;
   flex-wrap: wrap;
-  // height: 100vh;
   background-color: #b58ecc;
 }
-
 #subject-wrapper {
   height: 16vh;
   display: flex;
@@ -43,7 +37,6 @@
   margin: 0;
   flex-wrap: wrap;
   flex-direction: column;
-
   h1 {
     font-size: 5vh;
     font-weight: bolder;
@@ -55,7 +48,6 @@
     margin-bottom: 0;
     width: 100%;
   }
-
   #spans {
     margin-top: 0.2vw;
     display: flex;
@@ -64,7 +56,6 @@
     flex-direction: row;
     height: max-content;
   }
-
   span {
     user-select: none;
     cursor: pointer;
@@ -85,7 +76,6 @@
     width: max-content;
     text-align: left;
     font-size: 1vw;
-    font-family: Poppins;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -95,11 +85,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    // padding-right: 0.5vw;
   }
 }
-
 #publish {
   height: 0vh;
   resize: none;
@@ -111,19 +98,15 @@
   z-index: 69;
   flex-wrap: wrap;
   box-shadow: none;
-  font-family: Poppins;
-
   div {
     margin: 0;
   }
-
   button {
     background: linear-gradient(to right, #b58ecc, #5de6de);
     border: none;
     color: black;
     border-radius: 30px;
     padding: 1vh;
-    font-family: "Work Sans";
     font-weight: bolder;
   }
   label {
@@ -160,7 +143,6 @@
     padding: 0;
     margin: 0;
     margin-top: 1vh;
-
     h1 {
       margin: 0;
       font-size: 4vh;
@@ -173,7 +155,6 @@
     user-select: none;
     cursor: pointer;
   }
-
   #message {
     height: 70vh;
     outline: none;
@@ -182,7 +163,6 @@
     border-color: rgba(116, 113, 113, 0.274);
   }
 }
-
 #dislist {
   height: 20vh;
   border-radius: 1vh;
@@ -190,7 +170,6 @@
   flex-wrap: wrap;
   margin: 10px;
   background: linear-gradient(to right, #b58ecc, #5de6de);
-
   button {
     background: linear-gradient(to right, #b58ecc, #5de6de);
     border: none;
@@ -203,13 +182,11 @@
     border-style: solid;
     border-color: white;
   }
-
   #icon {
     font-size: 5vw;
     color: white;
   }
   h1 {
-    font-family: "Work Sans";
     font-weight: bolder;
     user-select: none;
   }
@@ -226,7 +203,6 @@
     height: max-content;
     padding: 0;
     margin: 0;
-
     h1 {
       margin: 0;
       color: black;
@@ -234,20 +210,56 @@
     }
   }
 }
-
-#message::-webkit-scrollbar {
-  width: 0.3vw; /* width of the entire scrollbar */
-}
-
-#message::-webkit-scrollbar-thumb {
-  background-color: #60fee7; /* color of the scroll thumb */
-  border-radius: 10px; /* roundness of the scroll thumb */
-}
-
-#message::-webkit-scrollbar-track {
-  background-color: #2f3136; /* color of the scroll track */
-}
-
-#message::-webkit-scrollbar-button {
-  display: none; /* hide the scroll buttons */
+@media screen and (max-width: 500px) {
+  #box-wrapper form {
+    width: 90vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 5px;
+    button {
+      width: 30vw;
+      border-radius: 10px;
+      border-width: 1px;
+      padding: 0.6vh;
+      height: 10vh;
+      background: none;
+      transform: translate(0, -100%);
+      width: 90vw;
+      color: transparent;
+      border: none;
+    }
+    #banner h1 {
+      font-size: 3vh;
+      max-height: 100%;
+      height: 10vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #banner span {
+      font-size: 7vh;
+      width: 17vw;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  #spans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #spans span {
+    font-size: 8vw;
+    width: 10vw;
+    height: 10vw;
+  }
+  #subject-wrapper {
+    height: 12vh;
+    width: 95vw;
+    margin-left: 6vw;
+  }
 }
