@@ -105,14 +105,6 @@ export class CourseService {
     return this.http.get<Course[]>(url, { headers });
   }
 
-  public getCurrentRole(): Observable<Role> {
-    const url =
-      'https://curiosity-afpm.onrender.com/e-classroom/course/getRole';
-    const token = this.service.getSession();
-    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
-    return this.http.get<Role>(url, { headers });
-  }
-
   public createCourse(courseName: string): Observable<Course> {
     const url =
       'https://curiosity-afpm.onrender.com/e-classroom/course/createCourse';
