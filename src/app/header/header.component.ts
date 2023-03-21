@@ -43,7 +43,13 @@ export class HeaderComponent {
     const myElement = document.getElementById(formId);
 
     if (myElement) {
-      myElement.style.height = '30vh';
+      if (window.innerWidth < 500) {
+        myElement.style.height = '30vh';
+        myElement.style.width = '95vw';
+      } else {
+        myElement.style.height = '30vh';
+      }
+
       myElement.style.boxShadow = '5px 5px 5px 5px rgba(0, 0, 0, 0.2)';
     }
   }
