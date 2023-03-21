@@ -74,16 +74,36 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 10px;
   max-width: 80%;
   width: max-content;
+  flex-direction: column;
+  margin-top: 10px;
+  label {
+    margin: 0;
+    font-size: 1vh;
+    margin: 0;
+    margin-left: 3vw;
+  }
+
   .avatar {
     min-width: 2vw;
     min-height: 2vw;
     border-radius: 50%;
-    background-color: #b58ecc;
+    background: linear-gradient(to right, #b58ecc, #5de6de);
     margin-left: 0.5vw;
-    margin-top: 0.3vw;
+    // margin-top: 0.3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+    font-weight: bolder;
+  }
+  #body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6px;
+    height: max-content;
   }
   p {
     margin-top: 0.5vw;

@@ -24,7 +24,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-#header {
+#header1 {
   height: 7vh;
   user-select: none;
 }
@@ -36,13 +36,14 @@
 }
 
 #subject-wrapper {
-  height: 10vh;
+  height: 16vh;
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   gap: 0;
   margin: 0;
   flex-wrap: wrap;
+  flex-direction: column;
+
   h1 {
     font-size: 5vh;
     font-weight: bolder;
@@ -52,30 +53,65 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 0;
+    width: 100%;
   }
+
+  #spans {
+    margin-top: 0.2vw;
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+    flex-direction: row;
+    height: max-content;
+  }
+
   span {
     user-select: none;
     cursor: pointer;
-    font-size: 3vh;
+    font-size: 1.4vw;
+    height: 2vw;
+    max-height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    width: 2vw;
+    background-color: #b58ecc;
+    color: white;
+    margin-right: 0.4vw;
+    border-radius: 5px;
   }
   h2 {
-    width: 100%;
+    width: max-content;
     text-align: left;
     font-size: 1vw;
+    font-family: Poppins;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    background: linear-gradient(to right, #b58ecc, #5de6de);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     // padding-right: 0.5vw;
   }
 }
 
 #publish {
   height: 0vh;
+  resize: none;
   overflow: hidden;
-  border-radius: 1vh;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 69;
   flex-wrap: wrap;
+  box-shadow: none;
+  font-family: Poppins;
 
   div {
     margin: 0;
@@ -127,7 +163,7 @@
 
     h1 {
       margin: 0;
-      font-size: 2vh;
+      font-size: 4vh;
     }
   }
   #close {
@@ -136,6 +172,14 @@
     top: 1vh;
     user-select: none;
     cursor: pointer;
+  }
+
+  #message {
+    height: 70vh;
+    outline: none;
+    resize: none;
+    border-style: solid;
+    border-color: rgba(116, 113, 113, 0.274);
   }
 }
 
@@ -189,4 +233,21 @@
       font-size: 1.5vw;
     }
   }
+}
+
+#message::-webkit-scrollbar {
+  width: 0.3vw; /* width of the entire scrollbar */
+}
+
+#message::-webkit-scrollbar-thumb {
+  background-color: #60fee7; /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+#message::-webkit-scrollbar-track {
+  background-color: #2f3136; /* color of the scroll track */
+}
+
+#message::-webkit-scrollbar-button {
+  display: none; /* hide the scroll buttons */
 }

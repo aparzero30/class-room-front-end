@@ -34,9 +34,11 @@
         <!-- <h1>{{ discId }}</h1> -->
 
         <div id="com-container" class="col-12" *ngFor="let comment of comments">
-          <div class="avatar"></div>
-          <!-- <p>{{ comment.message }}</p> -->
-          <p>{{ comment.message }}</p>
+          <label>{{ comment.name }}</label>
+          <div id="body">
+            <div class="avatar">{{ comment.name.charAt(0) }}</div>
+            <p>{{ comment.message }}</p>
+          </div>
         </div>
       </div>
       <form

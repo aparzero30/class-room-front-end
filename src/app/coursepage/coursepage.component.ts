@@ -75,7 +75,7 @@ export class CoursepageComponent {
     const myElement = document.getElementById('publish');
     const myDiv = document.getElementById('box-wrapper');
     if (myElement && myDiv) {
-      myElement.style.height = '80vh';
+      myElement.style.height = '100vh';
       myElement.style.boxShadow = '5px 5px 5px 5px rgba(0, 0, 0, 0.2)';
 
       myDiv.style.pointerEvents = 'none'; // disable pointer events on the div
