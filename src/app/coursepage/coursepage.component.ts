@@ -75,8 +75,8 @@ export class CoursepageComponent {
     const myElement = document.getElementById('publish');
     const myDiv = document.getElementById('box-wrapper');
     if (myElement && myDiv) {
-      myElement.style.height = '100vh';
-      myElement.style.boxShadow = '5px 5px 5px 5px rgba(0, 0, 0, 0.2)';
+      myElement.style.height = '82vh';
+      myElement.style.borderWidth = '1px';
 
       myDiv.style.pointerEvents = 'none'; // disable pointer events on the div
       myDiv.style.opacity = '0'; // set the opacity to 50%
@@ -91,6 +91,7 @@ export class CoursepageComponent {
     if (myElement && myDiv) {
       myElement.style.height = '0vh';
       myElement.style.boxShadow = '';
+      myElement.style.borderWidth = '0px';
 
       myDiv.style.pointerEvents = 'auto'; // disable pointer events on the div
       myDiv.style.opacity = '1'; // set the opacity to 50%

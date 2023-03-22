@@ -24,10 +24,6 @@ export class DiscussionpageComponent {
   comments!: Comm[];
   discId!: number;
 
-  // setInterval(() => {
-  //   this.getDiscussion();
-  // }, 5000);
-
   ngOnInit(): void {
     this.checkSession();
     this.getSessionComments();
@@ -55,6 +51,15 @@ export class DiscussionpageComponent {
   message!: string;
 
   public addComment(): void {
+    const comment: Comm = {
+      commentId: 0,
+      discussionId: this.discId,
+      userId: 0,
+      message: this.message,
+      name: '',
+    };
+
+    this.comments.push(comment);
     this.comServ.addComment(this.message, this.discId).subscribe({
       next: (v) => {
         this.getDiscussion();

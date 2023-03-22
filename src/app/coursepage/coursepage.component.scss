@@ -80,6 +80,11 @@
   @include selfcenter;
   z-index: 69;
   flex-wrap: wrap;
+  border-style: solid;
+  border-width: 0px;
+  border-color: var(--shadow);
+  border-radius: 10px;
+
   button {
     background: var(--bgcolor);
     border: none;
@@ -135,11 +140,19 @@
     cursor: pointer;
   }
   #message {
-    height: 70vh;
+    height: 53vh;
     outline: none;
     resize: none;
     border-style: solid;
     border-color: var(--shadow);
+    padding: 10px;
+  }
+  input {
+    @include colorclip;
+    border: none;
+    outline: none;
+    font-size: 1vw;
+    font-weight: bolder;
   }
 }
 #dislist {
@@ -173,6 +186,22 @@
     }
   }
 }
+
+#message::-webkit-scrollbar {
+  width: 0.3vw;
+}
+
+#message::-webkit-scrollbar-thumb {
+  background-color: #60fee7;
+  border-radius: 10px;
+}
+#message::-webkit-scrollbar-track {
+  background-color: #2f3136;
+}
+#message::-webkit-scrollbar-button {
+  display: none;
+}
+
 @media screen and (max-width: 500px) {
   #box-wrapper form {
     @include smallbox;

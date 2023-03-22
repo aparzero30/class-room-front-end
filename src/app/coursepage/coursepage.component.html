@@ -71,19 +71,17 @@
   </div>
 
   <div class="form-group col-11">
-    <label for="name">Title</label>
     <input
       type="name"
       class="form-control"
       id="name"
-      placeholder="Enter Discussion Title"
+      placeholder="TYPE TITLE HERE..."
       [(ngModel)]="title"
       name="title"
     />
   </div>
 
   <div class="form-group col-11">
-    <label for="body">Body</label><br />
     <textarea
       id="message"
       name="message"
@@ -91,6 +89,7 @@
       class="col-12"
       [(ngModel)]="body"
       name="body"
+      placeholder="TYPE CONTENTS HERE..."
     ></textarea>
   </div>
   <button type="submit" class="btn btn-primary col-11">Create</button>
