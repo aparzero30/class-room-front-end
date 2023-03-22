@@ -1,36 +1,31 @@
+@import "../../styles.scss";
+
 #header {
   height: 7vh;
   user-select: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
 }
 
 #add {
   margin-left: 1vw;
-  background: linear-gradient(to right, #b58ecc, #5de6de);
+  background: var(--bgcolor);
   height: 5vh;
   width: 5.2vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flexCenter;
   border-radius: 50%;
   font-size: 4vh;
-  color: white;
+  color: var(--color4);
   cursor: pointer;
   user-select: none;
 }
 #h1 {
-  font-family: "Work Sans";
+  font-family: var(--font2);
   font-weight: bolder;
 }
 #menu {
   margin-right: 1vh;
   margin-left: 1vh;
-  background: linear-gradient(to right, #b58ecc, #5de6de);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include colorclip;
 }
 
 @media screen and (max-width: 500px) {

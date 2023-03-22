@@ -1,17 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bgcolor: linear-gradient(to right, #b58ecc, #5de6de);
+  --font1:  font-family: "Poppins";
+  --font2:  font-family: "Work Sans";
+  --color1:#b58ecc;
+  --color2:#5de6de;
+  --color3:black;
+  --color4:white;
+  --shadow:rgba(0, 0, 0, 0.2);
+
+
+  --fontxlarge:4vw;
+  --fontlarge:3vw;
+  --fontmedium:2vw;
+  --fonts:1.5vw;
+  --fontxs:1.2vh;
+  --fontsm:1.4vw;
+  --mobilefontmedium:4vh;
+  --mobilefonts:3vh;
+
+
+
+  --iconxl:10vw;
+  --iconmobilexl:10vh;
+  --iconxlmobile:10vh;
+
+
+}
+
+@mixin flexCenter(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin selfcenter(){
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin fullscreen(){
+height: 100%;
+width: 100%;
+}
+
+@mixin colorclip(){
+  background: linear-gradient(to right, #b58ecc, #5de6de);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin boxreg(){
+  height: 20vh;
+  border-radius: 1vh;
+  flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to right, #b58ecc, #5de6de);
+}
+@mixin smallbox(){
+  width: 90vw;
+  height: 13vh;
+  justify-content: flex-start;
+  gap: 0;
+  flex-direction: row;
+  margin: 5px;
+}
+@mixin smallbutton(){
+      width: 30vw;
+      border-radius: 10px;
+      border-width: 1px;
+      padding: 0.6vh;
+      height: 10vh;
+      background: none;
+      transform: translate(0, -100%);
+      width: 90vw;
+      color: transparent;
+      border: none;
+}
+
+
+
+
+
+@mixin button(){
+  background-color: transparent;
+  border: none;
+  color: white;
+  border-radius: 30px;
+  padding: 1vh;
+  font-family: "Work Sans";
+  font-weight: bolder;
+  border-width: 1px;
+  border-style: solid;
+  border-color: white;
+}
+
+
+
 body::-webkit-scrollbar {
-  width: 0.3vw; /* width of the entire scrollbar */
+  width: 0.3vw; 
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #60fee7; /* color of the scroll thumb */
-  border-radius: 10px; /* roundness of the scroll thumb */
+  background-color: #60fee7;
+  border-radius: 10px;
 }
-
 body::-webkit-scrollbar-track {
-  background-color: #2f3136; /* color of the scroll track */
+  background-color: #2f3136; 
 }
-
 body::-webkit-scrollbar-button {
-  display: none; /* hide the scroll buttons */
+  display: none;
 }

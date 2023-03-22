@@ -1,24 +1,20 @@
+@import "../../styles.scss";
+
 #home-wrapper {
-  background-color: white;
+  background-color: var(--color4);
   height: max-content;
   min-height: 100vh;
   top: 0;
-  font-family: Poppins;
+  font-family: var(--font1);
 }
 #box-wrapper {
   flex-wrap: wrap;
   transition: 0.5s;
 }
-#h1 {
-  font-weight: bolder;
-}
 #menu {
   margin-right: 1vh;
   margin-left: 1vh;
-  background: linear-gradient(to right, #b58ecc, #5de6de);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @include colorclip;
 }
 #header1 {
   height: 7vh;
@@ -27,24 +23,19 @@
 #discussion-wrapper {
   height: max-content;
   flex-wrap: wrap;
-  background-color: #b58ecc;
 }
 #subject-wrapper {
   height: 16vh;
-  display: flex;
-  align-items: center;
+  @include flexCenter;
   gap: 0;
   margin: 0;
   flex-wrap: wrap;
   flex-direction: column;
   h1 {
-    font-size: 5vh;
+    font-size: var(--fontmedium);
     font-weight: bolder;
     user-select: none;
-    background: linear-gradient(to right, #b58ecc, #5de6de);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include colorclip;
     margin-bottom: 0;
     width: 100%;
   }
@@ -59,64 +50,52 @@
   span {
     user-select: none;
     cursor: pointer;
-    font-size: 1.4vw;
-    height: 2vw;
+    font-size: var(--fontsm);
+    height: var(--fontmedium);
     max-height: max-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexCenter;
     margin-top: 0;
     width: 2vw;
-    background-color: #b58ecc;
-    color: white;
+    background-color: var(--color1);
+    color: var(--color4);
     margin-right: 0.4vw;
     border-radius: 5px;
   }
   h2 {
     width: max-content;
     text-align: left;
-    font-size: 1vw;
+    font-size: var(--fontxs);
     display: flex;
     justify-content: flex-start;
     align-items: center;
     margin: 0;
     width: 100%;
-    background: linear-gradient(to right, #b58ecc, #5de6de);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include colorclip;
   }
 }
 #publish {
   height: 0vh;
   resize: none;
   overflow: hidden;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  @include selfcenter;
   z-index: 69;
   flex-wrap: wrap;
-  box-shadow: none;
-  div {
-    margin: 0;
-  }
   button {
-    background: linear-gradient(to right, #b58ecc, #5de6de);
+    background: var(--bgcolor);
     border: none;
-    color: black;
+    color: var(--color3);
     border-radius: 30px;
     padding: 1vh;
     font-weight: bolder;
   }
   label {
     user-select: none;
-    color: #b58ecc;
+    color: var(--color1);
     font-weight: bold;
   }
   #icon {
-    font-size: 3vw;
-    color: #5de6de;
+    font-size: var(--fontlarge);
+    color: var(--color2);
   }
   select {
     appearance: none;
@@ -125,7 +104,7 @@
     cursor: pointer;
   }
   h1 {
-    font-family: "Work Sans";
+    font-family: var(--font2);
     font-weight: bolder;
     user-select: none;
   }
@@ -135,8 +114,8 @@
   }
   a {
     padding-top: 0.5vh;
-    font-size: 1.2vh;
-    color: black;
+    font-size: var(--fontxs);
+    color: var(--color3);
   }
   #banner {
     height: max-content;
@@ -145,7 +124,7 @@
     margin-top: 1vh;
     h1 {
       margin: 0;
-      font-size: 4vh;
+      font-size: var(--fontmedium);
     }
   }
   #close {
@@ -160,36 +139,19 @@
     outline: none;
     resize: none;
     border-style: solid;
-    border-color: rgba(116, 113, 113, 0.274);
+    border-color: var(--shadow);
   }
 }
 #dislist {
-  height: 20vh;
-  border-radius: 1vh;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-  flex-wrap: wrap;
-  margin: 10px;
-  background: linear-gradient(to right, #b58ecc, #5de6de);
+  @include boxreg;
   button {
-    background: linear-gradient(to right, #b58ecc, #5de6de);
-    border: none;
-    color: white;
-    border-radius: 30px;
-    padding: 1vh;
-    font-family: "Work Sans";
-    font-weight: bolder;
-    border-width: 1px;
-    border-style: solid;
-    border-color: white;
+    @include button;
   }
   #icon {
-    font-size: 5vw;
-    color: white;
+    font-size: var(--fontxlarge);
+    color: var(--color4);
   }
-  h1 {
-    font-weight: bolder;
-    user-select: none;
-  }
+
   span {
     user-select: none;
     margin: 0;
@@ -197,7 +159,7 @@
   a {
     padding-top: 0.5vh;
     font-size: 1.2vh;
-    color: black;
+    color: var(--color3);
   }
   #banner {
     height: max-content;
@@ -205,46 +167,32 @@
     margin: 0;
     h1 {
       margin: 0;
-      color: black;
-      font-size: 1.5vw;
+      color: var(--color3);
+      font-size: var(--fonts);
+      font-weight: bolder;
     }
   }
 }
 @media screen and (max-width: 500px) {
   #box-wrapper form {
-    width: 90vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    margin: 5px;
+    @include smallbox;
+
     button {
-      width: 30vw;
-      border-radius: 10px;
-      border-width: 1px;
-      padding: 0.6vh;
-      height: 10vh;
-      background: none;
-      transform: translate(0, -100%);
-      width: 90vw;
-      color: transparent;
-      border: none;
+      @include smallbutton;
     }
-    #banner h1 {
-      font-size: 3vh;
-      max-height: 100%;
-      height: 10vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #banner span {
-      font-size: 7vh;
-      width: 17vw;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
+    #banner {
+      width: max-content;
+      max-width: 80%;
+      min-width: 80%;
+      margin-top: 2vh;
+
+      h1 {
+        font-size: var(--mobilefont);
+      }
+      span {
+        font-size: var(--iconmobilexl);
+        width: max-content;
+      }
     }
   }
   #spans {

@@ -1,30 +1,16 @@
+@import "../../styles.scss";
+
 form {
-  height: 20vh;
-  border-radius: 1vh;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
-  flex-wrap: wrap;
-  margin: 10px;
-  background: linear-gradient(to right, #b58ecc, #5de6de);
-
+  @include boxreg;
   button {
-    background: linear-gradient(to right, #b58ecc, #5de6de);
-    border: none;
-    color: white;
-    border-radius: 30px;
-    padding: 1vh;
-    font-family: "Work Sans";
-    font-weight: bolder;
-    border-width: 1px;
-    border-style: solid;
-    border-color: white;
+    @include button;
   }
-
   #icon {
-    font-size: 5vw;
-    color: white;
+    font-size: var(--fontxlarge);
+    color: var(--color4);
   }
   h1 {
-    font-family: "Work Sans";
+    font-family: var(--fontsm);
     font-weight: bolder;
     user-select: none;
   }
@@ -34,8 +20,8 @@ form {
   }
   a {
     padding-top: 0.5vh;
-    font-size: 1.2vh;
-    color: black;
+    font-size: var(--fontxs);
+    color: var(--color3);
   }
   #banner {
     height: max-content;
@@ -45,42 +31,27 @@ form {
 
     h1 {
       margin: 0;
-      color: black;
-      font-size: 1.5vw;
+      color: var(--color3);
+      font-size: var(--fonts);
     }
   }
 }
 
 #box-wrapper {
   flex-wrap: wrap;
-  background-color: white;
+  background-color: var(--color4);
 }
 
 @media screen and (max-width: 500px) {
   form {
-    width: 90vw;
-    height: 13vh;
-    justify-content: flex-start;
-    gap: 0;
-    flex-direction: row;
-    margin: 5px;
-
+    @include smallbox;
     #banner {
       width: 90vw;
       height: 100%;
     }
 
     button {
-      width: 30vw;
-      border-radius: 10px;
-      border-width: 1px;
-      padding: 0.6vh;
-      height: 10vh;
-      background: none;
-      transform: translate(0, -100%);
-      width: 90vw;
-      color: transparent;
-      border: none;
+      @include smallbutton;
     }
 
     #banner {
@@ -89,10 +60,10 @@ form {
       min-width: 80%;
 
       h1 {
-        font-size: 3vh;
+        font-size: var(--mobilefont);
       }
       span {
-        font-size: 8vh;
+        font-size: var(--iconmobilexl);
         width: max-content;
       }
     }
