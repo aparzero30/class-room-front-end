@@ -24,6 +24,8 @@ export class InstructSubjectsComponent {
   ngOnInit(): void {
     this.getCourses();
     this.getRole();
+    this.getAllCoursesForInstructors();
+    this.getAllCoursesForStudent();
   }
 
   public getCourses() {
@@ -54,10 +56,12 @@ export class InstructSubjectsComponent {
       next: (v) => {
         this.courses = v;
         this.service.storeCourses(this.courses);
+        this.loading = false;
       },
       error: (e) => console.error(e),
       complete: () => {
         this.loading = false;
+        console.log(this.loading);
       },
     });
   }
@@ -67,6 +71,7 @@ export class InstructSubjectsComponent {
       next: (v) => {
         this.courses = v;
         this.service.storeCourses(this.courses);
+        this.loading = false;
       },
       error: (e) => console.error(e),
       complete: () => {
