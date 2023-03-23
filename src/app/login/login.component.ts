@@ -30,7 +30,7 @@ export class LoginComponent {
     this.service.loginAccount(this.loginAcc).subscribe({
       next: (v) => {
         this.service.setSession(v.token);
-        // this.getUser();
+        this.getUser();
       },
       error: (e) => console.error(e),
       complete: () =>

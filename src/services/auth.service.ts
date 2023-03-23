@@ -25,6 +25,15 @@ export class AuthService {
   //   return this.http.post<AuthenticationResponse>(url, login);
   // }
 
+  // public getUser(): Observable<User> {
+  //   const url = ' http://localhost:8080/e-classroom/auth/me';
+  //   const headers = new HttpHeaders().set(
+  //     'Authorization',
+  //     'Bearer ' + this.getSession()
+  //   );
+  //   return this.http.get<User>(url, { headers });
+  // }
+
   //SETTING SESSION
 
   private sessionKey = 'jwtToken';
@@ -57,7 +66,7 @@ export class AuthService {
   }
 
   public getUser(): Observable<User> {
-    const url = ' http://localhost:8080/e-classroom/auth/me';
+    const url = ' https://curiosity-afpm.onrender.com/e-classroom/auth/me';
     const headers = new HttpHeaders().set(
       'Authorization',
       'Bearer ' + this.getSession()
