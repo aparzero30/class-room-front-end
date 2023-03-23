@@ -4,8 +4,8 @@ import { Discussion } from 'src/interfaces/Discussion';
 import { DiscussionService } from 'src/services/discussion.service';
 import { Comm } from 'src/interfaces/Comm';
 import { CommentService } from 'src/services/comment.service';
-import { interval } from 'rxjs';
 import { AuthService } from 'src/services/auth.service';
+import { User } from 'src/interfaces/User';
 
 @Component({
   selector: 'app-discussionpage',
@@ -23,12 +23,20 @@ export class DiscussionpageComponent {
   discussion!: Discussion;
   comments!: Comm[];
   discId!: number;
+  user!: User;
 
   ngOnInit(): void {
     this.checkSession();
+    this.getUser();
     this.getSessionComments();
     this.selectedDiscussion = this.discService.getSelectedDiscussion();
     this.getSelectedDiscussion();
+  }
+  getUser() {
+    const me: User | null = this.auth.getStoredUser();
+    if (me !== null) {
+      this.user = me;
+    }
   }
 
   getSessionComments() {

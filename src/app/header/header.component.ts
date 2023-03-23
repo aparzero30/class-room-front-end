@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Course } from 'src/interfaces/Course';
 import { Role } from 'src/interfaces/Role';
 import { CourseService } from 'src/services/course.service';
 import { RoleService } from 'src/services/role.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +12,14 @@ import { RoleService } from 'src/services/role.service';
 export class HeaderComponent {
   public role!: Role;
 
-  constructor(private service: CourseService, private rlservice: RoleService) {}
+  isCuriosity: boolean = false;
+
+  constructor(private rlservice: RoleService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getRole();
+    const url = this.route.snapshot.url.join('');
+    this.isCuriosity = url.includes('curiosity');
   }
 
   public getRole(): void {

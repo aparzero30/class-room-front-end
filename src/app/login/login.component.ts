@@ -30,10 +30,21 @@ export class LoginComponent {
     this.service.loginAccount(this.loginAcc).subscribe({
       next: (v) => {
         this.service.setSession(v.token);
+        // this.getUser();
       },
       error: (e) => console.error(e),
       complete: () =>
         console.info('complete', this.router.navigate(['/curiosity'])),
+    });
+  }
+
+  public getUser(): void {
+    this.service.getUser().subscribe({
+      next: (v) => {
+        this.service.storeUSER(v);
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete'),
     });
   }
 

@@ -45,7 +45,6 @@ export class CoursepageComponent {
     if (checker !== null) {
       this.discussions = checker;
     }
-    // this.discussions = this.discService.getDiscussions();
   }
 
   loading: boolean = true;

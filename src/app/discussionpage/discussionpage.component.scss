@@ -1,8 +1,8 @@
 #home-wrapper {
   background-color: white;
   height: max-content;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 93vh;
+  max-height: 93vh;
   top: 0;
   overflow: hidden;
 }
@@ -25,10 +25,10 @@
   -webkit-text-fill-color: transparent;
 }
 
-#header {
-  height: 7vh;
-  user-select: none;
-}
+// #header {
+//   height: 7vh;
+//   user-select: none;
+// }
 #disc-comm {
   margin-top: 7vh;
   max-height: 85vh;

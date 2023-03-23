@@ -3,7 +3,12 @@
   id="header"
 >
   <div class="col-3">
-    <span class="material-symbols-outlined" id="add" (click)="createCourse()">
+    <span
+      class="material-symbols-outlined"
+      id="add"
+      (click)="createCourse()"
+      *ngIf="isCuriosity"
+    >
       add
     </span>
   </div>

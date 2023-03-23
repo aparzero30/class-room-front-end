@@ -54,10 +54,8 @@ export class CourseService {
     const courseJson = sessionStorage.getItem(this.SELECTED_COURSE_KEY);
 
     if (courseJson) {
-      // If the JSON string exists, parse it back into a course object and return it
       return JSON.parse(courseJson);
     } else {
-      // If the JSON string doesn't exist, return null
       return null;
     }
   }
