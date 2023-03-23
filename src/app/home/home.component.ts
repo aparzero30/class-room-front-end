@@ -6,6 +6,7 @@ import { StudentService } from 'src/services/student.service';
 import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { RoleService } from 'src/services/role.service';
+import { User } from 'src/interfaces/User';
 
 @Component({
   selector: 'app-home',
@@ -99,15 +100,12 @@ export class HomeComponent {
   // token methods ------------------------------------------------------------------
 
   public getRole(): void {
-    this.rlservice.getCurrentRole().subscribe({
-      next: (v) => {
-        this.role = v;
-        this.rlservice.setSession(v);
-      },
-      error: (e) => console.error(e),
-      complete: () => console.info('complete'),
-    });
+    const me: User | null = this.auth.getStoredUser();
+    if (me !== null) {
+      this.role = me.role;
+    }
   }
+
   public checkSession(): void {
     const token = this.auth.getSession();
     if (token === null) {

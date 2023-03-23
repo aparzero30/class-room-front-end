@@ -5,7 +5,6 @@ import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/interfaces/User';
 import { Role } from 'src/interfaces/Role';
-import { RoleService } from 'src/services/role.service';
 
 @Component({
   selector: 'app-instruct-subjects',
@@ -16,23 +15,15 @@ export class InstructSubjectsComponent {
   constructor(
     private service: CourseService,
     private router: Router,
-    private rlService: RoleService
+    private auth: AuthService
   ) {}
 
   public courses: Course[] | null = [];
   public role!: Role;
 
   ngOnInit(): void {
-    // this.getAllCoursesForInstructors();
     this.getCourses();
     this.getRole();
-    this.getAllCoursesForInstructors();
-
-    // if (this.role === 'instructor') {
-    //   this.getAllCoursesForInstructors();
-    // } else {
-    //   alert(this.role);
-    // }
   }
 
   public getCourses() {
@@ -47,21 +38,15 @@ export class InstructSubjectsComponent {
   }
 
   public getRole(): void {
-    this.rlService.getCurrentRole().subscribe({
-      next: (v) => {
-        // alert(v);
-        this.role = v;
-        if (this.role === 'instructor') {
-          this.getAllCoursesForInstructors();
-        } else {
-          this.getAllCoursesForStudent();
-        }
-      },
-      error: (e) => console.error(e),
-      complete: () => {
-        this.loading = false;
-      },
-    });
+    const me: User | null = this.auth.getStoredUser();
+    if (me !== null) {
+      this.role = me.role;
+      if (this.role === 'instructor') {
+        this.getAllCoursesForInstructors();
+      } else {
+        this.getAllCoursesForStudent();
+      }
+    }
   }
 
   public getAllCoursesForInstructors(): void {
@@ -71,7 +56,9 @@ export class InstructSubjectsComponent {
         this.service.storeCourses(this.courses);
       },
       error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 
@@ -82,7 +69,9 @@ export class InstructSubjectsComponent {
         this.service.storeCourses(this.courses);
       },
       error: (e) => console.error(e),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.loading = false;
+      },
     });
   }
 }

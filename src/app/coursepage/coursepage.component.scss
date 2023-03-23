@@ -1,5 +1,4 @@
 @import "../../styles.scss";
-
 #home-wrapper {
   background-color: var(--color4);
   height: max-content;
@@ -145,7 +144,7 @@
     resize: none;
     border-style: solid;
     border-color: var(--shadow);
-    padding: 10px;
+    padding: 7px;
   }
   input {
     @include colorclip;
@@ -185,21 +184,6 @@
       font-weight: bolder;
     }
   }
-}
-
-#message::-webkit-scrollbar {
-  width: 0.3vw;
-}
-
-#message::-webkit-scrollbar-thumb {
-  background-color: #60fee7;
-  border-radius: 10px;
-}
-#message::-webkit-scrollbar-track {
-  background-color: #2f3136;
-}
-#message::-webkit-scrollbar-button {
-  display: none;
 }
 
 @media screen and (max-width: 500px) {

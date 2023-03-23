@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Role } from 'src/interfaces/Role';
-import { CourseService } from 'src/services/course.service';
-import { RoleService } from 'src/services/role.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/services/auth.service';
+import { User } from 'src/interfaces/User';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent {
 
   isCuriosity: boolean = false;
 
-  constructor(private rlservice: RoleService, private route: ActivatedRoute) {}
+  constructor(private auth: AuthService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getRole();
@@ -23,14 +23,10 @@ export class HeaderComponent {
   }
 
   public getRole(): void {
-    this.rlservice.getCurrentRole().subscribe({
-      next: (v) => {
-        this.role = v;
-        this.rlservice.setSession(v);
-      },
-      error: (e) => console.error(e),
-      complete: () => console.info('complete'),
-    });
+    const me: User | null = this.auth.getStoredUser();
+    if (me !== null) {
+      this.role = me.role;
+    }
   }
   public createCourse(): void {
     let formId = 'studentfrm';

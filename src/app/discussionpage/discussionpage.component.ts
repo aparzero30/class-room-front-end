@@ -24,6 +24,7 @@ export class DiscussionpageComponent {
   comments!: Comm[];
   discId!: number;
   user!: User;
+  name: string = '';
 
   ngOnInit(): void {
     this.checkSession();
@@ -31,11 +32,13 @@ export class DiscussionpageComponent {
     this.getSessionComments();
     this.selectedDiscussion = this.discService.getSelectedDiscussion();
     this.getSelectedDiscussion();
+    console.log(this.selectedDiscussion);
   }
   getUser() {
     const me: User | null = this.auth.getStoredUser();
     if (me !== null) {
       this.user = me;
+      this.name = this.user.name;
     }
   }
 
@@ -50,7 +53,6 @@ export class DiscussionpageComponent {
   getSelectedDiscussion() {
     if (this.selectedDiscussion !== null) {
       this.discussion = this.selectedDiscussion;
-      // this.comments = this.discussion.comments;
       this.discId = this.discussion.discussionId;
       this.getDiscussion();
     }
@@ -64,7 +66,7 @@ export class DiscussionpageComponent {
       discussionId: this.discId,
       userId: 0,
       message: this.message,
-      name: '',
+      name: this.name,
     };
 
     this.comments.push(comment);

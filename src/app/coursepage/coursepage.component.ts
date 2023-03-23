@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Course } from 'src/interfaces/Course';
 import { Discussion } from 'src/interfaces/Discussion';
 import { Role } from 'src/interfaces/Role';
+import { User } from 'src/interfaces/User';
 import { AuthService } from 'src/services/auth.service';
 import { CourseService } from 'src/services/course.service';
 import { DiscussionService } from 'src/services/discussion.service';
@@ -38,7 +39,10 @@ export class CoursepageComponent {
   }
 
   public getRole(): void {
-    this.role = this.rlservice.getSession();
+    const me: User | null = this.auth.getStoredUser();
+    if (me !== null) {
+      this.role = me.role;
+    }
   }
   public getDiscussions() {
     const checker: Discussion[] | null = this.discService.getDiscussions();

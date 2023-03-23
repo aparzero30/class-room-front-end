@@ -20,7 +20,9 @@
         <div id="com-container" class="col-12" *ngFor="let comment of comments">
           <label>{{ comment.name }}</label>
           <div id="body">
-            <div class="avatar">{{ comment.name.charAt(0) }}</div>
+            <div class="avatar">
+              {{ comment.name ? comment.name.charAt(0) : "" }}
+            </div>
             <p>{{ comment.message }}</p>
           </div>
         </div>
