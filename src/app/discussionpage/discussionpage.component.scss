@@ -36,6 +36,7 @@
   max-height: 85vh;
   height: 85vh;
   min-height: 85vh;
+  width: 100vw;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -200,7 +201,8 @@
   #home-wrapper {
     @include fullscreen;
     @include flexCenter;
-    max-width: max-content;
+    width: max-content;
+    overflow: hidden;
   }
 
   #disc-comm {
@@ -209,14 +211,17 @@
     align-items: flex-start;
     max-height: 100vh;
     padding-top: 0;
-
-    max-width: 180vw;
+    width: 200vw;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: hidden;
   }
   #comment-area,
   #discussion-area,
   #discussion-area {
+    margin: 0;
     flex-direction: column;
-    width: 10vw;
+    width: 110vw;
     min-width: 100vw;
     max-height: max-content;
     height: 100vh;
@@ -228,7 +233,7 @@
     margin-top: 10vh;
     height: 100vh;
     min-height: 100vh;
-    margin-left: 56vh;
+
     p {
       overflow: auto;
       max-height: 80vh;
@@ -254,7 +259,8 @@
   }
 
   #comment-area {
-    margin-top: 14vh;
+    margin-top: 15vh;
+    overflow: hidden;
     #msgs {
       width: 100vw;
       max-width: 100vw;
