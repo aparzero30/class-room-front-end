@@ -1,3 +1,5 @@
+@import "../../styles.scss";
+
 #home-wrapper {
   background-color: white;
   height: max-content;
@@ -192,4 +194,98 @@
 
 #msgs {
   height: 83vh;
+}
+
+@media screen and (max-width: 500px) {
+  #home-wrapper {
+    @include fullscreen;
+    @include flexCenter;
+    max-width: max-content;
+  }
+
+  #disc-comm {
+    margin-top: 3vh;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-height: 100vh;
+    padding-top: 0;
+
+    max-width: 180vw;
+  }
+  #comment-area,
+  #discussion-area,
+  #discussion-area {
+    flex-direction: column;
+    width: 10vw;
+    min-width: 100vw;
+    max-height: max-content;
+    height: 100vh;
+    min-height: 100vh;
+    max-width: 100vw;
+  }
+
+  #discussion-area {
+    margin-top: 10vh;
+    height: 100vh;
+    min-height: 100vh;
+    margin-left: 56vh;
+    p {
+      overflow: auto;
+      max-height: 80vh;
+      padding-bottom: 3vh;
+    }
+  }
+
+  #sender {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+  #comment-area form {
+    justify-content: flex-start;
+    margin: 0;
+    textarea {
+      width: 90vw;
+      margin-left: 1vh;
+    }
+    span {
+      transform: translate(-145%);
+    }
+  }
+
+  #comment-area {
+    margin-top: 14vh;
+    #msgs {
+      width: 100vw;
+      max-width: 100vw;
+      flex-wrap: wrap;
+      max-height: 80vh;
+      overflow: auto;
+      flex-direction: row;
+      h1 {
+        font-family: "Courier New", Courier, monospace;
+        width: 100%;
+        border-radius: solid;
+        border-color: black;
+        border-width: 2px;
+      }
+      #com-container {
+        width: 100vw;
+        max-width: 100vw;
+        .avatar {
+          min-width: 8vw;
+          min-height: 8vw;
+          width: 8vw;
+          height: 8vw;
+          max-width: 8vw;
+          max-height: 8vw;
+          background-color: red;
+          font-size: 5vw;
+        }
+        label {
+          margin-left: 10vw;
+        }
+      }
+    }
+  }
 }
